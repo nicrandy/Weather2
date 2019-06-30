@@ -8,7 +8,7 @@
     <style type="text/css">
         body{
             font-family: Arial;
-            font-size: 10pt;
+            font-size: 12pt;
         }
         table{
             border: 1px solid #ccc;
@@ -31,47 +31,62 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <asp:TextBox ID="txtZip" runat="server" Text="Enter Zip Code" />
+        Enter your zip code below <br />
+    <asp:TextBox ID="txtZip" runat="server" />
     <asp:Button Text="Get Weather" runat="server" OnClick="GetWeatherInfo" />
+
+        <asp:RadioButtonList ID="unitslist" runat="server">
+        <asp:ListItem Text ="Imperial units" Value="1" Selected="True"/>
+        <asp:ListItem Text ="Metric units" Value="2" />
+        </asp:RadioButtonList>
+
+            <asp:Label ID="lblSuccess" runat="server" /><br/>
+
+
+ 
         <hr />
     <table id="tblWeather" runat="server" border="0" cellpadding="0" cellspacing="0" visible="false">
         <tr>
             <th colspan="2">
-                Weather Info
+                City:<asp:Label ID="lblCity" runat="server" />
             </th>
             <th colspan="2">
-                City:
-                <asp:Label ID="lblCity" runat="server" />
+                Weather Info
             </th>
         </tr>
         <tr>
             <td rowspan="3">
-                
+            </td>
+        </tr>
+                <tr>
+         
+            <td>
+                Cloud coverage:<asp:Label ID="lblClouds" runat="server" />
+            </td>
+            <td>
+                Visibility:<asp:Label ID="lblsummary" runat="server" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Temperature:<asp:Label ID="lblTemp" runat="server" />
+            </td>
+            <td>
+                Humidity:<asp:Label ID="lblHumid" runat="server" />
             </td>
         </tr>
         <tr>
             <td>
-                Temperature:
-                <asp:Label ID="lblTemp" runat="server" />
+                
             </td>
-                        <td>
-                Humidity:
-                <asp:Label ID="lblHumid" runat="server" />
+        <td>
+                Wind Speed:<asp:Label ID="lblWind" runat="server" />
             </td>
-        </tr>
-        <tr>
-
-                        <td>
-                Wind Speed:
-                <asp:Label ID="lblWind" runat="server" />
-            </td>
-                                    <td>
-                Wind is from the
-                <asp:Label ID="lblDir" runat="server" />
+            <td>
+                Wind is from the<asp:Label ID="lblDir" runat="server" />
             </td>
 
-        </tr>
-        <tr>
         </tr>
 
 
