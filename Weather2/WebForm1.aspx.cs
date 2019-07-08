@@ -28,7 +28,7 @@ namespace Weather2
             if (txtZip.Text.Length != 5 || success == false)
             {
                 lblSuccess.Text = String.Format("Sorry, zip code is invalid. Please enter a valid 5-digit zipcode");
-                tblWeather.Visible = true;
+                tblWeather.Visible = false;
                 return;
 
             }
@@ -44,7 +44,7 @@ namespace Weather2
             catch
             {
                 lblSuccess.Text = String.Format("Sorry, zip code can't be found. Please enter a valid 5-digit zipcode");
-                tblWeather.Visible = true;
+                tblWeather.Visible = false;
                 return;
             }
             using (WebClient client = new WebClient())
@@ -138,6 +138,7 @@ namespace Weather2
 
                 lblDir.Text = string.Format(" {0}", windCord);
                 lblHumid.Text = string.Format(" {0}%", weatherinfo.main.humidity);
+
 
                 tblWeather.Visible = true;
 
